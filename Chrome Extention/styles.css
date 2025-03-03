@@ -1,0 +1,396 @@
+:root {
+    --text-color: #ffffff;
+    --button-color: #3f4546;
+    --background-color: #1c2021;
+    --popup-color: #313739;
+    --input-text-color: #ffffff;
+    --extra-detail: #5b6465;
+    --invert-level: .3;
+    --brightness-level-Countdown: 1;
+    --addNew-color: 1;
+    --logo-opacity: 0.2;
+  }
+  
+  
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+#logo {
+    width: 200px; 
+    height: auto; 
+    justify-content: center; 
+    z-index: -0.1;
+    position: fixed;
+    bottom: 20px;     
+    right: 28px;
+    opacity: var(--logo-opacity);
+}
+
+#newButton {
+    position: fixed;
+    width: 20px; 
+    height: auto; 
+    top: 20%;
+    z-index: 1;
+    left: 47%;
+    filter: brightness(var(--addNew-color));
+}
+
+/* The entire list of countdowns*/
+#countdownList {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1; /* Set a higher z-index to overlay on top of other content */
+    width: 80%; /* Adjust width as needed */
+    max-height: 63%; /* Set a maximum height for the list to enable scrolling if needed */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds maximum height */
+}
+
+/* A single countdown desplayed in the list */
+.countdown-item {
+    position: relative;
+    border-radius: 5px;
+    padding: 5px; /* The distence from the edge to the context inside */
+    margin-bottom: 5px; /* The distance from one countdown to another / The space between them */
+    background-color: var(--popup-color);
+    height: auto; /* Adjust height to allow for dynamic content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.countdown-content {
+    margin-bottom: 1px;
+    margin-right: 0px;
+}
+
+.title {
+    font-family: "Font1", sans-serif;
+    font-size: 14px; /* Font size for the title */
+    
+}
+
+.age {
+    font-family: "Font1", sans-serif;
+    font-size: 13px; /* Font size for the title */
+    margin-left: 5%;
+    color: var(--extra-detail);
+    
+}
+
+.monthDay {
+    margin-top: 20px;
+    font-family: "Font1", sans-serif;
+    font-size: 11px; /* Font size for the title */
+    color: var(--extra-detail);
+}
+
+.details {
+    font-family: "Font2", sans-serif;
+    font-size: 18px; /* Font size for the countdown details */
+    color: var(--input-text-color);
+    margin-right: 15px; /* Add right margin to create space between the details and the delete icon */
+    margin-left: 5px;
+}
+
+.countdown-content p {
+    margin-top: 1px; /* Remove default margin */
+    margin-bottom: 1px; /* Remove default margin */
+}
+
+
+
+/* CSS for delete icon */
+.delete-icon {
+    position: absolute;
+    width: 20px; 
+    height: 20px; 
+    right: 10px; 
+    cursor: pointer;
+    top: 10px;
+    transition: filter 0.2s;
+    opacity: .6;
+}
+
+
+.delete-icon:hover {
+    filter: invert(.5);
+}
+
+/* CSS for delete icon */
+.edit-icon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    right: 12px; /* Adjust the left margin to create space between countdown content and delete icon */
+    cursor: pointer;
+    bottom: 10px;
+    transition: filter 0.2s;
+    opacity: .6;
+}
+
+.edit-icon:hover {
+    filter: invert(.5);
+}
+
+
+.popup-container {
+    width: 250px; 
+    height: 350px;
+    background-color: var(--background-color);
+    padding: 5px; 
+    border: none; 
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    text-align: center; 
+}
+
+
+h1 {
+    z-index: 1; /* Set z-index to appear above other elements */
+    color: var(--text-color); 
+    font-size: 24px;
+}
+
+/* Basic button functions, will apply to a button unless that button has a spesific case */
+button {
+    border: none; 
+    padding: 0; 
+    background: transparent; 
+}
+
+
+button img {
+    width: 100px;
+    height: auto; /* Maintain aspect ratio */
+    transition: filter 0.2s; /* Smooth transition effect */
+}
+
+
+button:hover img {
+    filter: brightness(120%); /* Increase brightness on hover */
+    cursor: pointer; /* Set cursor to pointer */
+}
+
+
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.tooltip {
+    position: relative;
+}
+
+/* Tool tip is the box that pops up when you hover over a button and it tells you what it does*/
+.tooltip::after {
+    content: attr(title);
+    z-index: 100;
+    position: absolute;
+    bottom: 100%;
+    left: 30%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+.delete-button img {
+    width: 20px;
+    height: auto;
+}
+
+#CountdownTitle {
+    width: 140px; 
+    height: auto; 
+    justify-content: center; 
+    z-index: -1;
+    filter: brightness(var(--brightness-level-Countdown));
+}
+
+
+#swapElementsIcon {
+    width: 20px;   
+    bottom: 3px;
+    z-index: 5;
+    left: 20px;
+    position: fixed; 
+    filter: invert(var(--invert-level));
+ 
+}
+
+.selected {
+    border: 1px solid var(--text-color);
+}
+
+#swapElementsIcon:hover {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+#deleteZerosIcon {
+    width: 20px;   
+    bottom: 3px;
+    z-index: 5;
+    right: 22px;
+    position: fixed; 
+    filter: invert(var(--invert-level));
+ 
+}
+
+#deleteZerosIcon:hover {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+#SortByTimeIcon {
+    width: 20px;   
+    bottom: 3px;
+    z-index: 5;
+    right: 33%;
+    position: fixed; 
+    filter: invert(var(--invert-level));
+ 
+}
+
+#SortByTimeIcon:hover {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+#SortByNameIcon {
+    width: 20px;   
+    bottom: 3px;
+    z-index: 5;
+    left: 33%;
+    position: fixed; 
+    filter: invert(var(--invert-level));
+ 
+}
+
+#SortByNameIcon:hover {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+#FriendsIcon {
+    width: 20px;   
+    bottom: 3px;
+    z-index: 5;
+    right: 8%;
+    position: fixed; 
+    filter: invert(var(--invert-level));
+ 
+}
+
+#FriendsIcon:hover {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+
+
+#lightMode {
+    position: fixed;
+    filter: opacity(60%);
+    width: 18px; 
+    height: auto; 
+    top: 7px;
+    left: 7px;
+    z-index: 1;
+    transition: filter 0.3s;
+}
+
+#lightMode:hover {
+    filter: brightness(110%);
+}
+
+.popupMenu {
+    z-index: 50;
+    display: none;
+    position: fixed; 
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid rgb(111, 115, 120);
+    background-color: var(--popup-color); 
+    padding: 10px;
+    border-radius: 1px; 
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 1); 
+}
+
+.styledButton {
+    /* Basic button styles */
+    background-color: var(--popup-color);
+    color: var(--text-color); /* Button text color */
+    border: 2px solid rgb(86, 92, 99);
+    padding: 6px; 
+    border-radius: 1px; 
+    margin-bottom: 0px; /* Add margin bottom to space buttons */
+ }
+
+.styledButton:hover {
+    filter: brightness(115%); 
+    cursor: pointer;
+}
+
+p {
+    color: var(--text-color);
+}
+.menuTitle {
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 5px; /* Add bottom margin to space title from buttons */
+}
+
+input[type="date"] {
+    color: var(--text-color);
+    background-color: var(--button-color);
+  }
+
+input[type="time"] {
+    color: var(--text-color);
+    background-color: var(--button-color);
+} 
+
+input[type="text"] {
+    color: var(--input-text-color);
+    background-color: var(--button-color);
+}
+
+input[type="checkbox"] {
+   color: var(--text-color);
+}
+
+label {
+    color: var(--text-color);
+}
+
+#backIcon {
+    width: 25px;   
+    top: 3%;
+    z-index: 5;
+    right: 4%;
+    filter: invert(var(--invert-level));
+    position: fixed; 
+}

@@ -1,0 +1,30 @@
+{
+    "manifest_version" : 3,
+    "name" : "Countdown",
+    "description": "A chrome extention to keep track of important dates you are looking forward to.",
+    "version": "1.0.0",
+
+    "icons": {
+        "128": "images/CountdownLogo.png",
+        "48": "images/CountdownLogo.png",
+        "32": "images/CountdownLogo.png"
+    },
+    "action": {
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "storage"
+    ],
+    "background": {
+       "service_worker": "index.js",
+        "type": "module"
+    },
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ]
+    
+
+}

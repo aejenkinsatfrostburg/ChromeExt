@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <!-- Main body of the popup -->
+    <div class="popup-container">
+        <div class="content">
+            <img id="CountdownTitle" src="images/CountdownTitle.png" alt="Title">
+            <p></p>
+            <button id="addNewButton">
+                <img id="newButton" src="images/AddNew.PNG" alt="Add">
+            </button>
+            <button id="lightMode">
+                <img id="lightMode" src="images/sunIcon.PNG" alt="Light Mode">
+            </button>
+            <p></p>
+            <!-- The buttons lined along the bottom -->
+            <img id="logo" src="images/Logo.png" alt="Logo">
+            <button class="BottomButton" id="swapElements">
+                <img id="swapElementsIcon" src="images/swapIcon.PNG" alt="Swap" title="Click two elements to swap them">
+            </button>
+            <button class="BottomButton" id="deleteZeros">
+                <img id="deleteZerosIcon" src="images/deleteAllIcon.PNG" alt="DeleteAllZeros" title="Deletes every item in the list that has reached 0">
+            </button>
+            <button class="BottomButton" id="SortByTime">
+                <img id="SortByTimeIcon" src="images/sortClockIcon.png" alt="SortByTime" title="Sorts your list by time left">
+            </button>
+            <button class="BottomButton" id="SortByName">
+                <img id="SortByNameIcon" src="images/sortNameIcon.png" alt="SortByName" title="Sorts your list alphebetically">
+            </button>
+
+        </div>
+    </div>
+
+    <div id="countdownList"></div>
+
+    <!-- First popup menu -->
+    <div class="popupMenu" id="AddNewOptions" style="display: none;">
+        <p class="menuTitle">Add New:</p>
+        <button class="styledButton" id="eventButton">Event</button>
+        <p></p>
+        <button class="styledButton" id="birthdayButton">Birthday</button>
+    </div>
+
+
+<!-- Birthday Menu -->
+<div class="popupMenu" id="birthdayMenu" style="display: none;">
+    <p class="menuTitle">Enter Friend's Name:</p>
+    <input type="text" id="eventTitleBirthday" placeholder="Name">
+    <p></p>
+    <p class="menuTitle">Enter Friend's Date of Birth:</p>
+    <!-- Date and Time input -->
+    <input type="date" id="eventDateBirthday" value="2024-01-01">
+
+    <p></p>
+    <button class="styledButton" id="submitBirthdayButton">Submit</button>
+    <button class="styledButton" id="cancelButtonBirthday">Cancel</button>
+</div>
+
+<!-- Edit Birthday Menu -->
+<div class="popupMenu" id="editBirthdayMenu" style="display: none;">
+    <p class="menuTitle">Enter Friend's Name:</p>
+    <input type="text" id="eventTitleBirthdayEdit" placeholder="Name">
+    <p></p>
+    <p class="menuTitle">Enter Friend's Date of Birth:</p>
+    <!-- Date and Time input -->
+    <input type="date" id="eventDateBirthdayEdit" value="2024-01-01">
+
+
+
+    <p></p>
+    <button class="styledButton" id="submitEditedBirthdayButton">Submit</button>
+    <button class="styledButton" id="cancelButtonEditBirthday">Cancel</button>
+</div>
+
+<!-- Event Menu -->
+<div class="popupMenu" id="eventMenu" style="display: none;">
+    <p class="menuTitle">Enter Event:</p>
+    <!-- Title input -->
+    <input type="text" id="eventTitle" placeholder="Event Title">
+    <p></p>
+    <!-- Date and Time input -->
+    <input type="date" id="eventDate" value="2024-01-01">
+    <input type="time" id="eventTime" value="00:00">
+    <p></p>
+    <!-- Checkbox for repeat -->
+    <label for="repeatCheckbox">Repeat Countdown:</label>
+    <input type="checkbox" id="repeatCheckbox">
+
+    <p></p>
+    <button class="styledButton" id="submitEventButton">Submit</button>
+    <button class="styledButton" id="cancelButton">Cancel</button>
+</div>
+
+<!-- Edit Event Menu -->
+<div class="popupMenu" id="editEventMenu" style="display: none;">
+    <p class="menuTitle">Enter Event:</p>
+    <!-- Title input -->
+    <input type="text" id="eventTitleEdit" placeholder="Event Title">
+    <p></p>
+    <!-- Date and Time input -->
+    <input type="date" id="eventDateEdit" value="2024-01-01">
+    <input type="time" id="eventTimeEdit" value="00:00">
+    <p></p>
+    <!-- Checkbox for repeat -->
+    <label for="repeatCheckbox">Repeat Countdown:</label>
+    <input type="checkbox" id="repeatCheckboxEdit">
+
+    <p></p>
+    <button class="styledButton" id="submitEventButtonEdit">Submit</button>
+    <button class="styledButton" id="cancelButtonEdit">Cancel</button>
+</div>
+
+
+<!-- The script the HTML is refrencing -->
+    <script src="index.js"></script> 
+</body>
+</html>
